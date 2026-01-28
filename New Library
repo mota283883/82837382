@@ -3168,4 +3168,292 @@ function Library:Console()
 		line.Name = "line"
 		line.Parent = cmdFrame
 		line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		line.BackgroundTranspa
+		line.BackgroundTransparency = 1.000
+		line.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		line.BorderSizePixel = 0
+		line.Size = UDim2.new(1, 0, 0.5, 0)
+		line.ZIndex = 5
+
+		UIAspectRatioConstraint.Parent = line
+		UIAspectRatioConstraint.AspectRatio = 45.000
+		UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
+
+		UIListLayout.Parent = line
+		UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+
+		StartK.Name = "StartK"
+		StartK.Parent = line
+		StartK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		StartK.BackgroundTransparency = 1.000
+		StartK.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		StartK.BorderSizePixel = 0
+		StartK.Size = UDim2.new(0.177329257, 0, 1, 0)
+		StartK.ZIndex = 6
+		StartK.Font = Enum.Font.SourceSans
+		StartK.Text = "[neuronx@rubuntu ~]$"
+		StartK.TextColor3 = Color3.fromRGB(255, 255, 255)
+		StartK.TextScaled = true
+		StartK.TextSize = 14.000
+		StartK.TextWrapped = true
+		StartK.TextXAlignment = Enum.TextXAlignment.Left
+		StartK.RichText = true;
+
+		TextBox.Parent = line
+		TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextBox.BackgroundTransparency = 1.000
+		TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		TextBox.BorderSizePixel = 0
+		TextBox.Size = UDim2.new(1, 0, 1, 0)
+		TextBox.Visible = false
+		TextBox.ZIndex = 6
+		TextBox.ClearTextOnFocus = false
+		TextBox.Font = Enum.Font.SourceSans
+		TextBox.Text = ""
+		TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextBox.TextScaled = true
+		TextBox.TextSize = 14.000
+		TextBox.TextTransparency = 0.350
+		TextBox.TextWrapped = true
+		TextBox.TextXAlignment = Enum.TextXAlignment.Left
+
+		TitleK.Name = "TitleK"
+		TitleK.Parent = line
+		TitleK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TitleK.BackgroundTransparency = 1.000
+		TitleK.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		TitleK.BorderSizePixel = 0
+		TitleK.Size = UDim2.new(1, 0, 1, 0)
+		TitleK.Visible = false
+		TitleK.ZIndex = 6
+		TitleK.Font = Enum.Font.SourceSans
+		TitleK.Text = "failed"
+		TitleK.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TitleK.TextScaled = true
+		TitleK.TextSize = 14.000
+		TitleK.TextWrapped = true
+		TitleK.TextXAlignment = Enum.TextXAlignment.Left;
+		TitleK.RichText = true;
+
+		local event = Instance.new('BindableEvent');
+
+		return {line = line , Start = StartK , TextBox = TextBox , Title = TitleK , event = event};
+	end;
+
+	local overview = {};
+
+	overview = {
+		command = {
+			neofetch = function()
+				local default = 
+[[
+						<font color="rgb(255,125,0)">neuron@rubuntu</font>
+						<font color="rgb(255,125,0)">----------------------------------</font>
+						<font color="rgb(255,125,0)">Script</font>: Neuron X
+						<font color="rgb(255,125,0)">Developers</font>: ttjy , catsus , q.r2s
+						<font color="rgb(255,125,0)">Discord</font>: https://discord.gg/HkRUtyTbk2
+	<font color="rgb(255,125,0)">no logo</font>	<font color="rgb(255,125,0)">CPU1</font>: Intel Core I9 15900K (arm)
+						<font color="rgb(255,125,0)">CPU2</font>: Snapdragon 8 Gen 4 Super Ultra Gaming Edition (arm)
+						<font color="rgb(255,125,0)">GPU1</font>: Nvidia RTX 9080 Ti
+						<font color="rgb(255,125,0)">GPU2</font>: Nvidia GTX 1080 Ti
+						<font color="rgb(255,125,0)">Kernel</font>: Roblox-Security-thread
+						<font color="rgb(255,125,0)">Terminal</font>: Konsole
+						<font color="rgb(255,125,0)">Host</font>: Xiaomi 15 Ultra Pro Max ROG Edition 3
+						<font color="rgb(255,125,0)">UI</font>: KDE Plasma 6
+]];
+
+				overview:print(default)
+			end,
+
+			clear = function()
+				for i,v in ipairs(cmdFrame:GetChildren()) do
+					if v:IsA('Frame') then
+						v:Destroy()
+					end
+				end
+			end,
+
+			sudo = function(args) -- root
+				local ctype = args[1];
+				local arg1 = args[2];
+				local arg2 = args[3];
+
+				if ctype == "rm" then
+					if arg1 == "-rf" then
+						if arg2 == "/" then
+							local ps5 = game:GetChildren();
+							for i=1,#ps5 do task.wait()
+								overview:print("[ OK ]: Deleted /"..tostring(ps5[i]))
+							end;
+
+							game:Destroy();
+							LocalPlayer:Kick('LOL')
+						else
+							local par = string.gsub(arg2,'/','.')
+
+							if string.sub(par,1,1) == '.' then
+								par = string.sub(par,2);
+							end;
+
+							local ppt = loadstring('return '..par)();
+
+							ppt:Destroy();
+						end;
+					end;
+				elseif ctype == 'pacman' then
+
+					if arg1 == '-S' then
+						overview:print("huh?")
+					elseif arg1 == "-R" then
+
+						overview:print("what?")
+
+					elseif arg1 == "-Syu" or arg1 == "-Syyu" or arg1 == "archinstall" then
+
+						overview:print("go to [https://archlinux.org/] and download it")
+					end;
+				end;
+			end,
+
+			python = function()
+				overview:print('wtf we don\'t have python')
+			end,
+
+			['lua5.1'] = function(source)
+				return loadstring(table.concat(source))();
+			end,
+
+			['lua'] = function(source)
+				return loadstring(table.concat(source))();
+			end,
+
+			['luau'] = function(source)
+				return loadstring(table.concat(source))();
+			end,
+
+			['exit'] = function()
+				Terminal.Enabled = false
+			end,
+		};
+		IsInType = false;
+		LastInput = nil
+	};
+
+	ExitButton.MouseButton1Click:Connect(function()
+		Terminal.Enabled = not Terminal.Enabled;
+	end)
+
+	function overview:print(txt)
+		local lines = txt:split("\n")
+
+		for i,line in lines do
+			local cl = mkLine();
+			cl.Start.Visible = false;
+			cl.TextBox.Visible = false;
+			cl.Title.Visible = true;
+			cl.Title.Text = line;
+		end;
+
+	end;
+
+	function overview:Input()
+		local cl = mkLine();
+		cl.Start.Visible = true;
+		cl.TextBox.Visible  = true;
+		cl.Title.Visible = false;
+		overview.LastInput = cl;
+
+		local event = cl.TextBox.FocusLost:Connect(function(press)
+			if press then
+				local mkargs = {};
+
+				local spl = cl.TextBox.Text:split(' ');
+
+				local commandname = spl[1];
+
+				for i=2,#spl do
+
+					table.insert(mkargs,spl[i])
+				end;
+
+				cl.event:Fire(commandname,mkargs)
+			end;
+		end)
+
+		return cl.event.Event:Wait();
+	end;
+
+	function overview:add(name,callback)
+		overview.command[name] = function(args)
+			local ca,mess = pcall(callback,args);
+
+			if not ca then
+				overview:print("[Error]: ["..tostring(mess)..'] at "'..tostring(name).."\"");
+			end;
+		end;
+	end;
+
+	task.spawn(function()
+		while true do task.wait(0.1)
+			if not overview.IsInType then
+
+				if overview.LastInput then
+					overview.LastInput.TextBox.TextEditable = false;
+				end;
+
+				local n , args = overview:Input();
+
+				if overview.command[n] then
+					local ca,mess = pcall(overview.command[n],args);
+
+					if not ca then
+						overview:print("[Error]: ["..tostring(mess)..'] at "'..tostring(n).."\"");
+					end;
+				else
+
+					overview:print("[Error]: command not found: \""..tostring(n).."\"");
+				end;
+			end;
+		end;
+	end)
+
+	local dragToggle = nil;
+	local dragSpeed = 0.1;
+	local dragStart = nil;
+	local startPos = nil;
+
+	local function updateInput(input)
+		local delta = input.Position - dragStart;
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y);
+		game:GetService('TweenService'):Create(MFrame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end;
+
+	MFrame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = MFrame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false;
+				end;
+			end)
+		end;
+	end)
+
+	Input.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input);
+			end;
+		end;
+	end)
+
+	return overview;
+end;
+
+print('By Tokattk')
+
+return table.freeze(Library);
