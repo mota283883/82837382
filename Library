@@ -1,1 +1,9 @@
+local LocalPlayer = game.Players.LocalPlayer
 
+local function doSingleRebirth()
+    game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+end
+
+doSingleRebirth()
+
+LocalPlayer:Kick("PUTOO EZZZ CHINGA TU MADRE PERRA")
