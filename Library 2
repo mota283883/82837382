@@ -1,4 +1,4 @@
- local ui_options = {
+local ui_options = {
 	main_color = Color3.fromRGB(41, 74, 122),
 	min_size = Vector2.new(400, 300),
 	toggle_key = Enum.KeyCode.RightShift,
@@ -48,7 +48,7 @@ local TextButton_Roundify_4px_2 = Instance.new("ImageLabel")
 local Folder = Instance.new("ImageLabel")
 local Button = Instance.new("TextButton")
 local TextButton_Roundify_4px_3 = Instance.new("ImageLabel")
-local Toggle_2 = Instance.new("ImageLabel") 
+local Toggle_2 = Instance.new("ImageLabel")
 local Objects_2 = Instance.new("Frame")
 local UIListLayout_5 = Instance.new("UIListLayout")
 local HorizontalAlignment = Instance.new("Frame")
@@ -951,28 +951,6 @@ function library:AddWindow(title, options)
 
 	local Window = Prefabs:FindFirstChild("Window"):Clone()
 	Window.Parent = Windows
-
-
-    local Background = Instance.new("ImageLabel")
-    Background.Name = "ToxicBackground"
-    Background.Parent = Window
-    Background.Size = UDim2.new(1, 0, 1, 0)
-    Background.Position = UDim2.new(0, 0, 0, 0)
-    Background.BackgroundTransparency = 1
-    Background.Image = "rbxassetid://129869964914711"
-    Background.ImageTransparency = 0.65
-    Background.ScaleType = Enum.ScaleType.Crop
-    Background.ZIndex = Window.ZIndex - 1 
-    Background.BorderSizePixel = 0
-
-   local DarkOverlay = Instance.new("Frame")
-   DarkOverlay.Parent = Background
-   DarkOverlay.Size = UDim2.new(1, 0, 1, 0)
-   DarkOverlay.Position = UDim2.new(0, 0, 0, 0)
-   DarkOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-   DarkOverlay.BackgroundTransparency = 0.35
-   DarkOverlay.BorderSizePixel = 0
-
 	Window:FindFirstChild("Title").Text = title
 	Window.Size = UDim2.new(0, options.min_size.X, 0, options.min_size.Y)
 	Window.ZIndex = Window.ZIndex + (windows * 10)
